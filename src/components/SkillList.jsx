@@ -10,6 +10,7 @@ export default function SkillsList() {
         justifyContent: "space-between",
         flexWrap: "wrap",
         gap: "20px",
+        justifyContent: "center",
       }}
     >
       {skills.map((skill) => (

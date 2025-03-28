@@ -10,6 +10,7 @@ export default function ProjectList() {
         justifyContent: "space-between",
         flexWrap: "wrap",
         gap: "20px",
+        justifyContent: "center",
       }}
     >
       {projects.map((project) => (

@@ -13,7 +13,6 @@ export default function About() {
         flexDirection: "column",
         gap: "20px",
         margin: "20px 0 50px 0 ",
-        padding: "70px 0",
       }}
     >
       <div>
@@ -46,6 +45,7 @@ export default function About() {
             alignItems: "end",
             flexWrap: "wrap",
             gap: "20px",
+            marginBottom:"20px"
           }}
         >
           <StyledCartAbout>UI & UX DESIGNING</StyledCartAbout>
@@ -60,7 +60,7 @@ export default function About() {
             <Icons.python /> <span>WEB SCRAPING WITH PYTHON</span>
           </StyledCartAbout>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px",}}>
           <h1 style={{ color: "#7562E0", fontSize: "32px" }}>
             The services i offer:
           </h1>

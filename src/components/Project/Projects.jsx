@@ -8,7 +8,6 @@ export default function Projects() {
       style={{
         display: "flex",
         flexDirection: "column",
-        padding: "100px 0",
         gap: "20px",
       }}
     >

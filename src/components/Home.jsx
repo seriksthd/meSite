@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import image from "../assets/image/photo_2025-03-28_16-09-52-Photoroom.png";
 export default function Home() {
   return (
     <div
@@ -51,8 +51,8 @@ export default function Home() {
       <div>
         <StyledRadius>
           <ImageStyled
-            src="src/assets/image/photo_2025-03-28_16-09-52-Photoroom.png"
-            alt=""
+            src={image}
+            alt={image}
           />
         </StyledRadius>
       </div>
