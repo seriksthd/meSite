@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { navLinks } from "../utils/constnce";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { BiX } from "react-icons/bi";
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
-
+  const [burgerMenu, setBurgerMenu] = useState(false);
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -13,24 +15,54 @@ export default function Header() {
     e.preventDefault();
     scrollToSection(id);
     setActiveSection(id);
+    setBurgerMenu(false); 
   };
-
+  const handleClickBurgerMenu = () => {
+    setBurgerMenu(!burgerMenu);
+  };
   return (
     <StyledHeader>
       <StyledLogo>serik kamytov</StyledLogo>
-      <span></span>
-      <StyledNav>
-        {navLinks.map((link) => (
-          <StyledLink
-            key={link.id}
-            href="#"
-            onClick={(e) => handleClick(e, link.id)}
-            $isActive={activeSection === link.id}
-          >
-            {link.label}
-          </StyledLink>
-        ))}
-      </StyledNav>
+      {burgerMenu ? (
+        ""
+      ) : (
+        <span onClick={handleClickBurgerMenu}>
+          <GiHamburgerMenu
+            style={{ color: "#bdbdbd", fontSize: "28px", cursor: "pointer" }}
+          />
+        </span>
+      )}
+      {burgerMenu && (
+        <StyledNav>
+          {navLinks.map((link) => (
+            <StyledLink
+              key={link.id}
+              href="#"
+              onClick={(e) => handleClick(e, link.id)}
+              $isActive={activeSection === link.id}
+            >
+              {link.label}
+            </StyledLink>
+          ))}
+        </StyledNav>
+      )}
+      {burgerMenu && (
+        <BiX
+          onClick={handleClickBurgerMenu}
+          style={{
+            color: "#bdbdbd",
+            fontSize: "38px",
+            cursor: "pointer",
+            order: "1",
+            alignSelf: "end",
+            justifyContent: "start",
+            zIndex: "10",
+            position: "absolute",
+            bottom: "25px",
+            right: "15px",
+          }}
+        />
+      )}
     </StyledHeader>
   );
 }
@@ -52,9 +84,11 @@ const StyledHeader = styled.header`
   background-color: #181824;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0px;
   z-index: 10;
   @media (max-width: 768px) {
+    justify-content: space-between;
+    padding: 0 20px;
   }
 `;
 
@@ -63,8 +97,19 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   width: 40%;
   font-size: 18px;
+  transition: all 0.9s ease;
   @media (max-width: 768px) {
-    display: none;
+    position: absolute;
+    flex-direction: column;
+    right: 0;
+    top: 40px;
+    gap: 10px;
+    font-size: 30px;
+    background-color: #181824;
+    width: 50%;
+    height: 30vh;
+    padding: 20px;
+    border-radius: 8px;
   }
 `;
 
