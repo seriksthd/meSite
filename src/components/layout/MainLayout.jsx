@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header";
 import Home from "../Home";
 import Contact from "../Contact";
@@ -11,14 +11,25 @@ export default function MainLayout() {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
-
+  const [burgerMenu, setBurgerMenu] = useState(false);
+  const handleClickBurgerMenu = () => {
+    setBurgerMenu(!burgerMenu);
+  };
+  const handeleClickHomeClose = () => {
+    setBurgerMenu(false);
+  };
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <Header scrollToSection={scrollToSection} />
+      <Header
+        scrollToSection={scrollToSection}
+        handleClickBurgerMenu={handleClickBurgerMenu}
+        burgerMenu={burgerMenu}
+        setBurgerMenu={setBurgerMenu}
+      />
       <StyledMain>
-        <Home />
+        <Home handeleClickHomeClose={handeleClickHomeClose} />
         <About />
         <Projects />
         <Contact />
