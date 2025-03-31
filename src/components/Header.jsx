@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { navLinks } from "../utils/constnce";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiX } from "react-icons/bi";
@@ -7,6 +7,7 @@ import { BiX } from "react-icons/bi";
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [burgerMenu, setBurgerMenu] = useState(false);
+
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -17,21 +18,36 @@ export default function Header() {
     setActiveSection(id);
     setBurgerMenu(false); 
   };
+
   const handleClickBurgerMenu = () => {
     setBurgerMenu(!burgerMenu);
   };
+
   return (
     <StyledHeader>
       <StyledLogo>serik kamytov</StyledLogo>
-      {burgerMenu ? (
-        ""
-      ) : (
-        <span onClick={handleClickBurgerMenu}>
-          <GiHamburgerMenu
-            style={{ color: "#bdbdbd", fontSize: "28px", cursor: "pointer" }}
+      <BurgerMenuWrapper>
+        {burgerMenu ? (
+          <BiX
+            onClick={handleClickBurgerMenu}
+            style={{
+              color: "#bdbdbd",
+              fontSize: "38px",
+              cursor: "pointer",
+              position: "absolute",
+              bottom: "25px",
+              right: "15px",
+            }}
           />
-        </span>
-      )}
+        ) : (
+          <span onClick={handleClickBurgerMenu}>
+            <GiHamburgerMenu
+              style={{ color: "#bdbdbd", fontSize: "28px", cursor: "pointer" }}
+            />
+          </span>
+        )}
+      </BurgerMenuWrapper>
+
       {burgerMenu && (
         <StyledNav>
           {navLinks.map((link) => (
@@ -46,26 +62,23 @@ export default function Header() {
           ))}
         </StyledNav>
       )}
-      {burgerMenu && (
-        <BiX
-          onClick={handleClickBurgerMenu}
-          style={{
-            color: "#bdbdbd",
-            fontSize: "38px",
-            cursor: "pointer",
-            order: "1",
-            alignSelf: "end",
-            justifyContent: "start",
-            zIndex: "10",
-            position: "absolute",
-            bottom: "25px",
-            right: "15px",
-          }}
-        />
-      )}
+
+      <DesktopNav>
+        {navLinks.map((link) => (
+          <StyledLink
+            key={link.id}
+            href="#"
+            onClick={(e) => handleClick(e, link.id)}
+            $isActive={activeSection === link.id}
+          >
+            {link.label}
+          </StyledLink>
+        ))}
+      </DesktopNav>
     </StyledHeader>
   );
 }
+
 const StyledLogo = styled.h1`
   font-size: 28px;
   color: #7562e0;
@@ -75,6 +88,7 @@ const StyledLogo = styled.h1`
     font-size: 24px;
   }
 `;
+
 const StyledHeader = styled.header`
   width: 100%;
   height: 80px;
@@ -84,37 +98,48 @@ const StyledHeader = styled.header`
   background-color: #181824;
   position: fixed;
   top: 0;
-  left: 0px;
+  left: 0;
   z-index: 10;
+  padding: 0 20px;
   @media (max-width: 768px) {
     justify-content: space-between;
-    padding: 0 20px;
+  }
+`;
+
+const BurgerMenuWrapper = styled.div`
+  display: block;
+  z-index: 10;
+  @media (min-width: 768px) {
+    display: none; 
   }
 `;
 
 const StyledNav = styled.nav`
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #181824;
+  width: 50%;
+  height: 30vh;
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+`;
+
+const DesktopNav = styled.nav`
+  display: flex;
   justify-content: space-between;
   width: 40%;
   font-size: 18px;
-  transition: all 0.9s ease;
   @media (max-width: 768px) {
-    position: absolute;
-    flex-direction: column;
-    right: 0;
-    top: 40px;
-    gap: 10px;
-    font-size: 30px;
-    background-color: #181824;
-    width: 50%;
-    height: 30vh;
-    padding: 20px;
-    border-radius: 8px;
+    display: none; 
   }
 `;
 
 const StyledLink = styled.a`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   color: ${(props) => (props.$isActive ? "#7562e0" : "white")};
   cursor: pointer;
