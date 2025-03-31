@@ -16,7 +16,7 @@ export default function Header() {
     e.preventDefault();
     scrollToSection(id);
     setActiveSection(id);
-    setBurgerMenu(false); 
+    setBurgerMenu(false);
   };
 
   const handleClickBurgerMenu = () => {
@@ -110,7 +110,7 @@ const BurgerMenuWrapper = styled.div`
   display: block;
   z-index: 10;
   @media (min-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;
 
@@ -134,7 +134,7 @@ const DesktopNav = styled.nav`
   width: 40%;
   font-size: 18px;
   @media (max-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;
 
