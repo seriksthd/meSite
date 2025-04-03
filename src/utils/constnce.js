@@ -85,4 +85,5 @@ export const navLinks = [
   { id: "about", label: "About Me" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
+  { id: "number", label: "+996 755 800 302" },
 ];

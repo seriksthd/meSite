@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Header from "../Header";
 import Home from "../Home";
 import Contact from "../Contact";
@@ -21,15 +21,16 @@ export default function MainLayout() {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+      >
       <Header
         scrollToSection={scrollToSection}
         handleClickBurgerMenu={handleClickBurgerMenu}
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
-      />
-      <StyledMain>
-        <Home handeleClickHomeClose={handeleClickHomeClose} />
+        />
+       
+      <StyledMain onClick={handeleClickHomeClose}>
+        <Home  />
         <About />
         <Projects />
         <Contact />

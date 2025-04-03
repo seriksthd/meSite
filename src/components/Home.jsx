@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import image from "../assets/image/photo_2025-03-28_16-09-52-Photoroom.png";
-export default function Home({ handeleClickHomeClose }) {
+export default function Home() {
   return (
     <div
       id="home"
-      onClick={handeleClickHomeClose}
       style={{
         width: "100%",
         height: "100vh",

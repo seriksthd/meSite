@@ -25,6 +25,7 @@ export default function Footer() {
           >
             Designed by @ernestechie
           </a>
+          <p style={{ color: "#FFFFFF50" }}>+996 755 800 302</p>
         </StyledNavBar>
         <GroupIcons />
       </div>

@@ -119,7 +119,7 @@ const StyledNav = styled.nav`
   gap: 20px;
   background-color: #181824;
   width: 50%;
-  height: 21vh;
+  height: 25vh;
   padding: 20px;
   border-radius: 8px;
   position: absolute;
