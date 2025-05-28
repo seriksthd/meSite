@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { navLinks } from "../utils/constnce";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiX } from "react-icons/bi";
+import { Icons } from "../assets";
 
 export default function Header({
   setBurgerMenu,
@@ -24,7 +25,9 @@ export default function Header({
 
   return (
     <StyledHeader>
-      <StyledLogo>serik kamytov</StyledLogo>
+      <StyledLogo>
+        <Icons.serikKamytov />
+      </StyledLogo>
       <BurgerMenuWrapper>
         {burgerMenu ? (
           <BiX
@@ -79,13 +82,8 @@ export default function Header({
 }
 
 const StyledLogo = styled.h1`
-  font-size: 28px;
-  color: #7562e0;
-  font-weight: 700;
+  width: 160px;
   cursor: pointer;
-  @media (max-width: 768px) {
-    font-size: 24px;
-  }
 `;
 
 const StyledHeader = styled.header`
@@ -119,7 +117,7 @@ const StyledNav = styled.nav`
   gap: 20px;
   background-color: #181824;
   width: 50%;
-  height: 25vh;
+  height: 235px;
   padding: 20px;
   border-radius: 8px;
   position: absolute;

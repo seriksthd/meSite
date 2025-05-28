@@ -1,11 +1,11 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Header from "../Header";
 import Home from "../Home";
 import Contact from "../Contact";
-import Projects from "../Project/Projects";
 import About from "../About";
 import Footer from "../Footer";
 import styled from "styled-components";
+import { Portfolio } from "../Portfolio";
 
 export default function MainLayout() {
   const scrollToSection = (id) => {
@@ -21,18 +21,18 @@ export default function MainLayout() {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
+    >
       <Header
         scrollToSection={scrollToSection}
         handleClickBurgerMenu={handleClickBurgerMenu}
         burgerMenu={burgerMenu}
         setBurgerMenu={setBurgerMenu}
-        />
-       
+      />
+
       <StyledMain onClick={handeleClickHomeClose}>
-        <Home  />
+        <Home />
         <About />
-        <Projects />
+        <Portfolio />
         <Contact />
       </StyledMain>
       <Footer />

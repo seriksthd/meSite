@@ -1,10 +1,11 @@
-import React from "react";
 import MainLayout from "./components/layout/MainLayout";
 
-export default function App() {
+function App() {
   return (
     <div>
       <MainLayout />
     </div>
   );
 }
+
+export default App;

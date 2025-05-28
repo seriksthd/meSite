@@ -11,6 +11,7 @@ import code from "./icons/vuesax_broken_code.svg?react";
 import javascript from "./icons/vuesax_javascript.svg?react";
 import uiux from "./icons/vuesax_ruler&pen.svg?react";
 import slider from "./icons/vuesax_slider.svg?react";
+import serikKamytov from "./icons/serik-kamytov.svg?react";
 export const Icons = {
   hierarchy,
   python,
@@ -25,4 +26,5 @@ export const Icons = {
   javascript,
   uiux,
   slider,
+  serikKamytov,
 };

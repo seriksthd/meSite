@@ -1,4 +1,3 @@
-import React from "react";
 import { Icons } from "../assets";
 
 export default function SkillCard({ skill }) {

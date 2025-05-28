@@ -18,8 +18,7 @@ export default function About() {
       <div>
         <h1 style={{ color: "#7562E0", fontSize: "32px" }}>About me:</h1>
         <p style={{ color: "#fff", fontSize: "18px" }}>
-          Hi, my name is serik kamytov, i am a Full stack web developer, UI
-          designer, and Mobile developer. I have honed my skills in Web
+          Hi, my name is serik kamytov, i am a web developer I have honed my skills in Web
           Development i have core understanding of advance UI design principles.
           Here are the major skills i have.
         </p>

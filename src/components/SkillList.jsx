@@ -1,4 +1,3 @@
-import React from "react";
 import { skills } from "../utils/constnce";
 import SkillCard from "./SkillCart";
 
@@ -7,10 +6,9 @@ export default function SkillsList() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
         flexWrap: "wrap",
         gap: "20px",
-        justifyContent: "center",
       }}
     >
       {skills.map((skill) => (

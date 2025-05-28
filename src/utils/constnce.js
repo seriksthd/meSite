@@ -1,30 +1,3 @@
-import TWINDER from "../assets/image/thumbnail-1.png";
-import LIVENTS from "../assets/image/thumbnail-2.png";
-import MOOVE from "../assets/image/thumbnail-3.png";
-export const projects = [
-  {
-    id: 1,
-    title: "TWINDER",
-    description:
-      "A live Geolocation app for finding tweets and twitter users around you.",
-    image: TWINDER,
-  },
-  {
-    id: 2,
-    title: "LIVENTS",
-    description:
-      "A video streaming app with live Geolocation, for streaming events.",
-    image: LIVENTS,
-  },
-  {
-    id: 3,
-    title: "MOOVE",
-    description:
-      "Mobile app for booking instant pickup & dropoff accross major cities.",
-    image: MOOVE,
-  },
-];
-
 export const skills = [
   {
     id: 1,
