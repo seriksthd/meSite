@@ -37,14 +37,12 @@ export const Portfolio = () => {
                 <h2 className="text-xl font-bold">{item.name}</h2>
                 <p className="text-gray-400 mt-2">{item.description}</p>
               </div>
-              <a
-                href={item.url}
-                target="_blank"
+              <div
                 rel="noopener noreferrer"
                 className="text-blue-400 inline-block mt-3"
               >
                 ⟶
-              </a>
+              </div>
             </a>
           </div>
         ))}

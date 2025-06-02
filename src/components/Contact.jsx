@@ -1,8 +1,32 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import GroupIcons from "./GroupIcons";
 
 export default function Contact() {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "01101a2a-181d-4ef6-84c2-a16527039849");
+    formData.append("from_site", window.location.hostname);
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
   return (
     <div
       id="contact"
@@ -26,7 +50,10 @@ export default function Contact() {
         <h2 style={{ fontSize: "24px", color: "#fff" }}>
           Contact me, let’s make magic together
         </h2>
-        <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+        <form
+          onSubmit={onSubmit}
+          style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+        >
           <div
             style={{
               display: "flex",
@@ -35,11 +62,17 @@ export default function Contact() {
               maxWidth: "462px",
             }}
           >
-            <StyledInput type="text" placeholder="Name:" />
-            <StyledInput type="email" placeholder="Email:" />
+            <StyledInput type="text" name="name" placeholder="Name:" required />
+            <StyledInput
+              type="email"
+              name="email"
+              placeholder="Email:"
+              required
+            />
             <input
               type="text"
-              placeholder="Message:"
+              name="Message:"
+              placeholder="Message"
               style={{
                 height: "98px",
                 borderRadius: "8px",
@@ -48,9 +81,19 @@ export default function Contact() {
                 border: "none",
                 padding: "0 0 0 10px",
               }}
+              required
             />
+            <input type="hidden" name="from_name" value="Serik Kamytov" />
+            <input
+              type="hidden"
+              name="subject"
+              value="New Message from Serik Kamytov"
+            />
+            <input type="hidden" name="replyto" value="customer@example.com" />
           </div>
+
           <button
+            type="submit"
             style={{
               width: "174px",
               height: "50px",
@@ -63,6 +106,7 @@ export default function Contact() {
             Send
           </button>
         </form>
+        <span>{result}</span>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import { useState } from "react";
+import styled from "styled-components";
 import { navLinks } from "../utils/constnce";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiX } from "react-icons/bi";
@@ -117,7 +117,7 @@ const StyledNav = styled.nav`
   gap: 20px;
   background-color: #181824;
   width: 50%;
-  height: 235px;
+  height: 275px;
   padding: 20px;
   border-radius: 8px;
   position: absolute;
